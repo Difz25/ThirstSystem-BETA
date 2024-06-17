@@ -13,10 +13,9 @@ ThirstSystem was developed by [Difz25](https://github.com/Difz25)
 | - | - |
 | `{thirstsystem.thirst}` | To show player thirst |
 <br>
-
 # Table of contents
 - [Examples](#examples)
- - [get player's thirst](#get-player's-thirst)
+  - [get player's thirst](#get-player's-thirst)
 
 ## Examples
 
