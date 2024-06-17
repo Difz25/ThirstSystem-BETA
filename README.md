@@ -41,13 +41,13 @@ You can get player's thirst using the `getThirst`  method. here's is an example:
 You can get player's thirst using the `getThirst`  method. here's is an example:
 
 ```php
-    public function Example(Player $player): void {
-        $thirst = ThirstSystem::getInstance()->getThirst($player);
+    public function Example(Player $player, int $amount): void {
+        $thirst = ThirstSystem::getInstance()->addThirst($player, $amount);
         if($thirst < 0){
-            $player->sendMessage("you're already thirsty");
+            $player->sendMessage("you're earned" . $thirst);
         }
         if($thirst > 100) {
-            $player->sendMessage("you're thirst has been full");
+            $player->sendMessage("you're has been have full thirst");
         }
     }
 ```
