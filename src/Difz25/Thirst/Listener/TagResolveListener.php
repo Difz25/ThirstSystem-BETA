@@ -4,20 +4,20 @@ declare(strict_types = 1);
 namespace Difz25\Thirst\Listener;
 
 use Ifera\ScoreHud\event\TagsResolveEvent;
-use Difz25\Thirst\Main;
+use Difz25\Thirst\ThirstSystem;
 use pocketmine\event\Listener;
 use function count;
 use function explode;
 
 /**
 * @property $eco
-* @property Main $plugin
+* @property ThirstSystem $plugin
 */
-class TagResolveEvent implements Listener{
+class TagResolveListener implements Listener{
 
-    private Main $plugin;
+    private ThirstSystem $plugin;
 
-    public function __construct(Main $plugin){
+    public function __construct(ThirstSystem $plugin){
         $this->plugin = $plugin;
     }
 
@@ -31,7 +31,7 @@ class TagResolveEvent implements Listener{
             return;
         }
 
-        if ($tags[1] == "thirstsystem") {
+        if ($tags[1] == "thirst") {
             $value = $this->plugin->Format($this->plugin->getThirst($player));
         }
         $tag->setValue(($value));
