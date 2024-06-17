@@ -38,9 +38,9 @@ You can get player's thirst using the `getThirst`  method. here's is an example:
     }
 ```
 
-### Get player's thirst
+### Add player's thirst
 
-You can get player's thirst using the `addThirst`  method. here's is an example:
+You can add player's thirst using the `addThirst`  method. here's is an example:
 
 ```php
     public function Example(string|Player $player, int $amount): void {
@@ -51,7 +51,7 @@ You can get player's thirst using the `addThirst`  method. here's is an example:
 
 ### Reduce player's thirst
 
-You can get player's thirst using the `reduceThirst`  method. here's is an example:
+You can reduce player's thirst using the `reduceThirst`  method. here's is an example:
 
 ```php
     public function Example(string|Player $player, int $amount): void {
