@@ -16,9 +16,9 @@ ThirstSystem was developed by [Difz25](https://github.com/Difz25)
 
 # Table of contents
 - [Examples](#examples)
-  - [Get player's thirst](#get-player's-thirst)
-  - [Add player's thirst](#add-player's-thirst)
-  - [Reduce player's thirst](#reduce-player's-thirst)
+  - [Get player's thirst](#get-players-thirst)
+  - [Add player's thirst](#add-players-thirst)
+  - [Reduce player's thirst](#reduce-players-thirst)
 
 ## Examples
 
