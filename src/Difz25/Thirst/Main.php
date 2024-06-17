@@ -19,8 +19,9 @@ use pocketmine\scheduler\ClosureTask;
 use Ifera\ScoreHud\event\PlayerTagsUpdateEvent;
 use Ifera\ScoreHud\ScoreHud;
 
-class Main extends PluginBase implements Listener {
+class ThirstSystem extends PluginBase implements Listener {
 
+    private static ThirstSystem $instance;
     public Config $thirst;
     
     public array $inventory = [];
@@ -179,5 +180,13 @@ class Main extends PluginBase implements Listener {
         }
 
         return false;
+    }
+    
+    public static function getInstance(): self {
+        return self::$instance;
+    }
+
+    public function onLoad(): void {
+        self::$instance = $this;
     }
 }
