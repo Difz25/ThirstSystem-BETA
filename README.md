@@ -1,5 +1,6 @@
 # ThirstSystem
 ThirstSystem was developed by [Difz25](https://github.com/Difz25)
+
 # Depend
 | Authors | Github | Plugin |
 |---------|--------|-----|
@@ -12,7 +13,7 @@ ThirstSystem was developed by [Difz25](https://github.com/Difz25)
 | Scoretag | Feature |
 | - | - |
 | `{thirstsystem.thirst}` | To show player thirst |
-<br>
+
 # Table of contents
 - [Examples](#examples)
   - [Get player's thirst](#get-player's-thirst)
