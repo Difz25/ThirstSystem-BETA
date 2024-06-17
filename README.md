@@ -9,6 +9,6 @@
 - Its beta no issues
 - 
 # ScoreHud Support
-| Scoretag |
-| - |
-| `{thirstsystem.thirst}` To show player thirst |
+| Scoretag | Feature |
+| - | - |
+| `{thirstsystem.thirst}` | To show player thirst |
