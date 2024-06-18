@@ -1,6 +1,6 @@
 ---
 name: ThirstSystem
-main: Difz25\Thirst\Main
+main: Difz25\Thirst\ThirstSystem
 author: Difz25
 api: 5.16.0
 version: 1.0.0 - New
