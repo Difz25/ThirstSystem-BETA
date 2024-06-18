@@ -30,10 +30,7 @@ You can get player's thirst using the `getThirst`  method. here's is an example:
     public function Example(string|Player $player): void {
         $thirst = ThirstSystem::getInstance()->getThirst($player);
         if($thirst < 0){
-            $player->sendMessage("you're already thirsty");
-        }
-        if($thirst > 100) {
-            $player->sendMessage("you're thirst has been full");
+            $player->sendMessage("you thirst is " . $thirst);
         }
     }
 ```
