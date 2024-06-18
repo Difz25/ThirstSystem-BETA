@@ -13,11 +13,8 @@ use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
-use Difz25\Thirst\Listener\TagResolveEvent;
-use Ifera\ScoreHud\scoreboard\ScoreTag;
-use pocketmine\scheduler\ClosureTask;
-use Ifera\ScoreHud\event\PlayerTagsUpdateEvent;
-use Ifera\ScoreHud\ScoreHud;
+use Difz25\Thirst\Listener\TagResolveListener;
+use Difz25\Thirst\Listener\EventListener;
 
 class ThirstSystem extends PluginBase implements Listener {
 
@@ -27,34 +24,20 @@ class ThirstSystem extends PluginBase implements Listener {
     public array $inventory = [];
 
     public function onEnable(): void {
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $player = Player::class;
         $this->thirst = new Config($this->getDataFolder() . "players/" . strtolower($player->getName()) . ".yml", Config::YAML, [
             "Thirst" => 100,
         ]);
-        if (class_exists(ScoreHud::class)) {
-            $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(
-                closure: function (): void {
-                    foreach ($this->getServer()->getOnlinePlayers() as $player) {
-                        if (!$player->isOnline()) {
-                            continue;
-                        }
-
-                        (new PlayerTagsUpdateEvent($player, [
-                            new ScoreTag("thirstsystem.thirst", $this->Format($this->getThirst($player))),
-                        ]))->call();
-                    }
-                }
-            ), 1);
-            $this->getServer()->getPluginManager()->registerEvents(new TagResolveEvent($this), $this);
-        }
+        
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new TagResolveListener($this), $this);
     }
     
-    public function Format($num): string {
-            if(!is_numeric($num)) return  '0%';
-        $format = number_format((int) $num, 2, ',', '.');
-        return '%' . $format;
-    }
+    public function Format($number): string {
+        if(!is_numeric($number)) returN '0%';
+    	$format = number_format((int) $number, 0, '%');
+    	return '% ' . $format;
+	}
     
     public function getPlayerData(string|Player $player): ?Config {
         if ($player instanceof Player) {
@@ -69,14 +52,22 @@ class ThirstSystem extends PluginBase implements Listener {
         return null;
     }
     
-    public function getThirst(string|Player $player): ?int {
+    public function getThirst(string|Player $player): ?array {
         if (($data = $this->getPlayerData($player)) !== null) {
-            return $data->getAll()["Thirst"];
+            return $data->get("Thirst");
         }
     
         return null;
     }
-
+    
+    public function getAllThirst(Player $player): ?array {
+        if (($data = $this->getPlayerData($player)) !== null) {
+            return $data->get("Thirst") !== null ? $data->get("Thirst") : [];
+        }
+    
+        return null;
+    }
+    
     /**
      * @throws JsonException
      */
