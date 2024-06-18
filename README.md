@@ -7,8 +7,8 @@ ThirstSystem was developed by [Difz25](https://github.com/Difz25)
 | Ifera / Tayyab R. | [Ifera](https://github.com/Ifera) | [ScoreHud](https://github.com/Ifera/ScoreHud) |
 
 # Bug / Issues
-- Its beta no issues
-- 
+- Scoretag not showing thirst
+
 # ScoreHud Support
 | Scoretag | Feature |
 | - | - |
