@@ -19,6 +19,7 @@ ThirstSystem was developed by [Difz25](https://github.com/Difz25)
   - [Get player's thirst](#get-players-thirst)
   - [Add player's thirst](#add-players-thirst)
   - [Reduce player's thirst](#reduce-players-thirst)
+  - [Get all player's thirst](#get-all-players-thirst)
 
 ## Examples
 
@@ -54,5 +55,16 @@ You can reduce player's thirst using the `reduceThirst`  method. here's is an ex
     public function Example(string|Player $player, int $amount): void {
         $thirst = ThirstSystem::getInstance()->reduceThirst($player, $amount);
         $player->sendMessage("you're thirst deacreased " $amount);
+    }
+```
+
+### Get all player's thirst
+
+You can reduce player's thirst using the `getAllThirst`  method. here's is an example:
+
+```php
+    public function Example(string|Player $player, int $amount): void {
+        $thirst = ThirstSystem::getInstance()->getAllThirst($player, $amount);
+        $player->sendMessage("you all thirst is " . $thirst);
     }
 ```
