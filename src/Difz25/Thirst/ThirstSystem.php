@@ -52,14 +52,22 @@ class ThirstSystem extends PluginBase implements Listener {
         return null;
     }
     
-    public function getThirst(string|Player $player): ?int {
+    public function getThirst(string|Player $player): ?array {
         if (($data = $this->getPlayerData($player)) !== null) {
-            return $data->getAll()["Thirst"];
+            return $data->get("Thirst");
         }
     
         return null;
     }
-
+    
+    public function getAllThirst(Player $player): ?array {
+        if (($data = $this->getPlayerData($player)) !== null) {
+            return $data->get("Thirst") !== null ? $data->get("Thirst") : [];
+        }
+    
+        return null;
+    }
+    
     /**
      * @throws JsonException
      */
